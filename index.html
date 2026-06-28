@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuwo Game - Sewa PS 3 & PS4 Kota Metro</title>
+    <style>
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0c0d10;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #161920;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #b31b1b;
+        }
+
+        header .container {
+            display: block;
+            overflow: hidden;
+        }
+
+        .logo {
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #003791; /* PlayStation Blue */
+        }
+
+        nav {
+            float: right;
+            padding-top: 5px;
+        }
+
+        nav a {
+            color: #f5f5f7;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #003791;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #b31b1b 0%, #3a0000 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-logo {
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.94;
+        }
+
+        /* Features / Info Badges */
+        .features-grid {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px 20px;
+            margin: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Showcase Section (Kaset Game Sebagai Background + Efek PlayStation) */
+        .showcase-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(12, 13, 16, 0.85), rgba(12, 13, 16, 0.85)), url('gameps.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: 1px solid #1c202b;
+        }
+
+        .showcase-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .console-box-ps {
+            flex: 1;
+            min-width: 280px;
+            background: linear-gradient(145deg, rgba(22, 25, 32, 0.95), rgba(15, 17, 21, 0.95));
+            border: 1px solid #1c202b;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Garis LED Biru Ikonik PlayStation */
+        .console-box-ps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #003791;
+            box-shadow: 0 2px 12px #003791;
+        }
+
+        .console-box-ps:hover {
+            transform: translateY(-8px);
+            border-color: #003791;
+            box-shadow: 0 15px 30px rgba(0, 55, 145, 0.3);
+        }
+
+        .ps-symbols {
+            font-size: 26px;
+            letter-spacing: 5px;
+            color: rgba(255, 255, 255, 0.15);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .console-box-ps h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .console-box-ps p {
+            font-size: 14px;
+            color: #a0a5b0;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 60px 0;
+            background-color: #161920;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #b31b1b;
+            margin: 10px auto 0 auto;
+        }
+
+        .pricing-grid {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .pricing-card {
+            width: 48%;
+            float: left;
+            margin-bottom: 30px;
+            background-color: #0c0d10;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1c202b;
+        }
+
+        .pricing-card.right {
+            float: right;
+        }
+
+        .card-header {
+            background-color: #b31b1b;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-header.tv-package {
+            background-color: #0a3d62;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: #161920;
+            color: #a0a5b0;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        tr {
+            border-bottom: 1px solid #1c202b;
+        }
+
+        tr:last-child {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #111318;
+        }
+
+        .price-text {
+            color: #ffdd59;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Testimoni Section */
+        .testimonial-section {
+            background-color: #0c0d10;
+            padding: 60px 0;
+            border-top: 1px solid #1c202b;
+        }
+
+        .testimonial-container {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-image {
+            width: 100%;
+            max-width: 750px;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid #161920;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-caption {
+            font-size: 15px;
+            color: #a0a5b0;
+            font-style: italic;
+        }
+
+        /* Syarat Sewa Section */
+        .terms-section {
+            background-color: #161920;
+            padding: 60px 0;
+            border-top: 1px solid #1c202b;
+        }
+
+        .terms-card {
+            background-color: #0c0d10;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #b31b1b;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .terms-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .terms-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .terms-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Kotak Peringatan Kerusakan */
+        .warning-card {
+            background-color: #2a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .warning-icon {
+            font-size: 30px;
+        }
+
+        .warning-text h4 {
+            color: #ff6b6b;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .warning-text p {
+            font-size: 15px;
+            color: #f5f5f7;
+            font-weight: 500;
+        }
+
+        /* Kotak Saran / Komentar Rahasia */
+        .feedback-section {
+            background-color: #0c0d10;
+            padding: 60px 0;
+            border-top: 1px solid #1c202b;
+        }
+
+        .feedback-form {
+            background-color: #161920;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #1c202b;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #a0a5b0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #0c0d10;
+            border: 1px solid #1c202b;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #b31b1b;
+        }
+
+        .btn-submit {
+            background-color: #b31b1b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #990000;
+        }
+
+        /* Call to Action & Sosmed */
+        .cta-section {
+            background-color: #161920;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #1c202b;
+            border-bottom: 1px solid #1c202b;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-instagram {
+            display: inline-block;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(204, 35, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover, .btn-instagram:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0c0d10;
+            color: #a0a5b0;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card {
+                width: 100%;
+                float: none !important;
+            }
+            .logo, nav {
+                float: none;
+                text-align: center;
+                display: block;
+                margin: 5px auto;
+            }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container clearfix">
+            <a href="#" class="logo">NUWO <span>GAME</span></a>
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#koleksi">KONSOL</a>
+                <a href="#harga">DAFTAR HARGA</a>
+                <a href="#testimoni">TESTIMONI</a>
+                <a href="#syarat">SYARAT SEWA</a>
+                <a href="#saran">KOTAK SARAN</a>
+                <a href="#kontak">HUBUNGI KAMI</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <img src="nuwo.png" alt="Nuwo Game Logo" class="hero-logo">
+            <h1>Sewa PS 3 & PS4 Kota Metro</h1>
+            <p>Nikmati waktu berkualitas bersama keluarga dan sahabat di rumah bersama Nuwo Game!</p>
+            
+            <div class="features-grid">
+                <span class="feature-item">⚽ Game Bola Terupdate</span>
+                <span class="feature-item">🚗 Bisa Antar Jemput Metro</span>
+                <span class="feature-item">🔥 Banyak Game (GTA V, Naruto, Bola, Basket, dll.)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE KONSOL (DENGAN BACKGROUND FOTO GAMEPS.JPG) -->
+    <section id="koleksi" class="showcase-section">
+        <div class="container">
+            <h2 class="section-title">Koleksi Konsol Kami</h2>
+            
+            <div class="showcase-grid">
+                <div class="console-box-ps">
+                    <div class="ps-symbols">◯ ╳ ▢ △</div>
+                    <h3>PlayStation® 3</h3>
+                    <p>Konsol bertenaga dengan pustaka game retro legendaris terfavorit untuk bermain santai bersama teman-teman terdekat Anda.</p>
+                </div>
+                <div class="console-box-ps">
+                    <div class="ps-symbols">◯ ╳ ▢ △</div>
+                    <h3>PlayStation® 4</h3>
+                    <p>Performa visual gaming mutakhir kualitas HD yang memanjakan mata, siap menjalankan ratusan pilihan game hits terpopuler saat ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="harga" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Daftar Paket Sewa</h2>
+            <div class="pricing-grid clearfix">
+                <!-- PS3 Card -->
+                <div class="pricing-card">
+                    <div class="card-header">Paket PS3</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Durasi</th>
+                                <th style="text-align: right;">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sewa 12 Jam</td><td class="price-text">Rp 40.000</td></tr>
+                            <tr><td>Sewa 1 Hari</td><td class="price-text">Rp 50.000</td></tr>
+                            <tr><td>Sewa 2 Hari (+12 Jam)</td><td class="price-text">Rp 90.000</td></tr>
+                            <tr><td>Sewa 3 Hari (+1 Hari)</td><td class="price-text">Rp 150.000</td></tr>
+                            <tr><td>Sewa 5 Hari (+2 Hari)</td><td class="price-text">Rp 250.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PS4 Card -->
+                <div class="pricing-card right">
+                    <div class="card-header">Paket PS4</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Durasi</th>
+                                <th style="text-align: right;">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sewa 12 Jam</td><td class="price-text">Rp 80.000</td></tr>
+                            <tr><td>Sewa 1 Hari</td><td class="price-text">Rp 100.000</td></tr>
+                            <tr><td>Sewa 2 Hari (+12 Jam)</td><td class="price-text">Rp 180.000</td></tr>
+                            <tr><td>Sewa 3 Hari (+1 Hari)</td><td class="price-text">Rp 300.000</td></tr>
+                            <tr><td>Sewa 5 Hari (+2 Hari)</td><td class="price-text">Rp 450.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pricing-grid clearfix" style="margin-top: 20px;">
+                <!-- PS3 + TV 32" Card -->
+                <div class="pricing-card">
+                    <div class="card-header tv-package">Paket PS3 + TV 32"</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Durasi</th>
+                                <th style="text-align: right;">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sewa 12 Jam</td><td class="price-text">Rp 60.000</td></tr>
+                            <tr><td>Sewa 1 Hari</td><td class="price-text">Rp 80.000</td></tr>
+                            <tr><td>Sewa 2 Hari (+12 Jam)</td><td class="price-text">Rp 140.000</td></tr>
+                            <tr><td>Sewa 3 Hari (+1 Hari)</td><td class="price-text">Rp 240.000</td></tr>
+                            <tr><td>Sewa 5 Hari (+2 Hari)</td><td class="price-text">Rp 350.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PS4 + TV 32" Card -->
+                <div class="pricing-card right">
+                    <div class="card-header tv-package">Paket PS4 + TV 32"</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Durasi</th>
+                                <th style="text-align: right;">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sewa 12 Jam</td><td class="price-text">Rp 100.000</td></tr>
+                            <tr><td>Sewa 1 Hari</td><td class="price-text">Rp 130.000</td></tr>
+                            <tr><td>Sewa 2 Hari (+12 Jam)</td><td class="price-text">Rp 230.000</td></tr>
+                            <tr><td>Sewa 3 Hari (+1 Hari)</td><td class="price-text">Rp 390.000</td></tr>
+                            <tr><td>Sewa 5 Hari (+2 Hari)</td><td class="price-text">Rp 600.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI SECTION -->
+    <section id="testimoni" class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <div class="testimonial-container">
+                <img src="testimoni.jpg" alt="Testimoni Nuwo Game" class="testimonial-image">
+                <p class="testimonial-caption">Dokumentasi keseruan para pelanggan setia Nuwo Game Kota Metro!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYARAT SEWA SECTION -->
+    <section id="syarat" class="terms-section">
+        <div class="container">
+            <h2 class="section-title">Syarat Penyewaan</h2>
+            
+            <div class="terms-card">
+                <h3>Dokumen Jaminan (Pilih salah satu):</h3>
+                <ul class="terms-list">
+                    <li>KTP Asli Metro</li>
+                    <li>Kartu Pelajar aktif</li>
+                    <li>Kartu Mahasiswa aktif</li>
+                    <li>Dokumen lainnya dapat dibicarakan langsung di WhatsApp</li>
+                </ul>
+            </div>
+
+            <!-- Kotak Peringatan Kerusakan -->
+            <div class="warning-card">
+                <div class="warning-icon">⚠️</div>
+                <div class="warning-text">
+                    <h4>Peringatan Penting:</h4>
+                    <p>Segala bentuk kerusakan pada konsol, stik, TV, atau kelengkapan lainnya yang disebabkan oleh kelalaian penyewa, sepenuhnya ditanggung oleh penyewa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOTAK SARAN / KOMENTAR RAHASIA -->
+    <section id="saran" class="feedback-section">
+        <div class="container">
+            <h2 class="section-title">Kotak Saran & Komentar</h2>
+            <form class="feedback-form" action="https://formspree.io/f/xpqgrgav" method="POST">
+                <div class="form-group">
+                    <label for="name">Nama / Anonim:</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda (boleh dikosongkan)...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Saran / Komentar Anda:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tulis kritik, saran, atau komentar Anda di sini..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">KIRIM SARAN RAHASIA</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA SECTION & SOSMED -->
+    <section id="kontak" class="cta-section">
+        <div class="container">
+            <p>Hubungi Nuwo Game Sekarang untuk Pemesanan atau Cek Info Update!</p>
+            <a href="https://wa.me/6289506873931" class="btn-whatsapp" target="_blank">
+                Solusi Seru 💬 WhatsApp (0895-0687-3931)
+            </a>
+            <a href="https://www.instagram.com/nuwogame" class="btn-instagram" target="_blank">
+                📸 Instagram @nuwogame
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <strong>Nuwo Game</strong>. Sewa PS Metro - Lampung. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
